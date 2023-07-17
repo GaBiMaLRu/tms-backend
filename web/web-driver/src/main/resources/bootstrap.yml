@@ -1,0 +1,33 @@
+server:
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 1000
+    min-spare-threads: 30
+  port: 8162
+  connection-timeout: 50000ms
+  cloud:
+    nacos:
+      config:
+        server-addr: ${nacos.host}
+        file-extension: yml
+        namespace: ${nacos.namespace}
+        shared-dataids: common.yml,redis.yml,mysql.yml
+        refreshable-dataids: common.yml
+        enabled: true
+      discovery:
+        server-addr: ${nacos.host}
+        namespace: ${nacos.namespace}
+        metadata: # 元数据，用于权限服务实时获取各个服务的所有接口
+          management.context-path: ${server.servlet.context-path:}${spring.mvc.servlet.path:}${management.endpoints.web.base-path:}
+#  servlet:
+#    context-path: /base
+
+spring:
+  application:
+    name: web-driver
+  # 环境 dev|test|prod
+  profiles:
+    active: dev
+  main:
+    allow-bean-definition-overriding: true
+

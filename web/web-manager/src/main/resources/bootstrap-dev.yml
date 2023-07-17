@@ -1,0 +1,22 @@
+spring:
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      discovery:
+        server-addr: 192.168.11.1:8848
+        namespace: 7d4b5a32-3c74-4617-adc4-c610bf27a82f
+      config:
+        server-addr: 192.168.11.1:8848
+        file-extension: yml
+        namespace: 7d4b5a32-3c74-4617-adc4-c610bf27a82f
+
+  # jackson时间格式化
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  servlet:
+    multipart:
+      max-file-size: 10
+      max-request-size: 10
+      enabled: true

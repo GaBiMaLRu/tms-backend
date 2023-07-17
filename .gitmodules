@@ -1,0 +1,3 @@
+[submodule "tms-frontend"]
+	path = tms-frontend
+	url = git@github.com:LeolichN/tms-frontend.git
